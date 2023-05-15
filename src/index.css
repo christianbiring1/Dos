@@ -1,0 +1,9 @@
+body {
+  padding: 20px;
+}
+
+.nav__left {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
