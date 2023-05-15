@@ -35,7 +35,8 @@ function App() {
   const addTask = (title) => {
     if(!title) return;
     const id = Date.now();
-    setItems([...items, {id, title}])
+    const completed = false;
+    setItems([...items, {id, title, completed}])
     console.log(title)
   }
 
