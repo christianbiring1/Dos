@@ -5,39 +5,26 @@ import TasksList from './components/tasksList';
 import NavBar from './components/navbar';
 
 function App() {
-  const thingsTodo = [
-    {
-      id: 1,
-      title: 'First task',
-      completed: false
-    },
-    {id: 2,
-      title: 'Task number two',
-      completed: false
-    },
-    {id: 3,
-      title: 'Task number three',
-      completed: false
-    },
-    {id: 4,
-      title: 'Task number four',
-      completed: false
-    }
-  ];
 
-  const [items, setItems] = useState(thingsTodo);
+  const arrayOfTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  const [items, setItems] = useState(arrayOfTasks);
 
   const removeTask = (id) => {
     console.log(id);
     setItems( items.filter(item => item.id !== id));
+    const newArrayOfTasks = arrayOfTasks.filter(task => task.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(newArrayOfTasks));
   }
 
   const addTask = (title) => {
     if(!title) return;
     const id = Date.now();
     const completed = false;
-    setItems([...items, {id, title, completed}])
-    console.log(title)
+    setItems([...items, {id, title, completed}]);
+    arrayOfTasks.push({id, title, completed})
+    console.log(arrayOfTasks);
+    localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
   }
 
   const checkTask = (item) => {
@@ -52,7 +39,7 @@ function App() {
       console.log(items);
   }
   return (
-    <div>
+    <div className='container'>
       <TaskInput handleAdd={addTask} />
       <TasksList tasks={items} handleDelete={removeTask} handleCheck={checkTask}/>
       <NavBar tasks={items} />

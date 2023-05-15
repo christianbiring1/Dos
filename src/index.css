@@ -50,8 +50,12 @@ body {
 
 @media screen and (min-width: 840px) {
 
+  .container {
+    width: 60%;
+  }
+
   .list-group-item {
-    grid-template-columns: 5% auto 13%;
+    grid-template-columns: 5% auto 20%;
   }
 
 }
