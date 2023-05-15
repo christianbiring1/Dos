@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
   padding: 20px;
+  font-family: 'Inter', sans-serif;
 }
 
-.nav__left {
+.navbar {
+  font-weight: 200;
+  font-style: italic;
+}
+.nav__left, .nav__right {
   display: flex;
   justify-content: space-around;
   gap: 20px;
+}
+
+.list-group button {
+  font-weight: 300;
+  font-size: 0.8em;
 }
