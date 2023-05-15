@@ -5,9 +5,21 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.nothing_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  margin: 50px auto;
+}
+
 .navbar {
   font-weight: 200;
   font-style: italic;
+  background-color: rgba(127, 255, 212, 0.5);
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .nav__left, .nav__right {
   display: flex;
@@ -18,4 +30,28 @@ body {
 .list-group button {
   font-weight: 300;
   font-size: 0.8em;
+}
+
+.list-group-item {
+  display: grid;
+  grid-template-columns: 10% 60% auto;
+}
+/* .task_to-do span, .task_to-do button {
+  display: inline-block;
+} */
+
+@media screen and (min-width: 768px){
+
+  .list-group-item {
+    grid-template-columns: 10% auto 15%;
+  }
+  
+}
+
+@media screen and (min-width: 840px) {
+
+  .list-group-item {
+    grid-template-columns: 5% auto 13%;
+  }
+
 }

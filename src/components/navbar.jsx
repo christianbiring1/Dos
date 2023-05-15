@@ -4,7 +4,7 @@ const NavBar = ({tasks}) => {
     <div className="navbar">
       <div className="nav__left">
         <span>+Add</span>
-        <span>0Search</span>
+        <span>Search</span>
         <span>{left} items left</span>
       </div>
       <div className="nav__right">
