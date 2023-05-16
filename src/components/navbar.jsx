@@ -1,5 +1,5 @@
-const NavBar = ({tasks}) => {
-  const left = tasks.filter(item => item.completed === false).length;
+const NavBar = ({ tasks }) => {
+  const left = tasks.filter((item) => item.completed === false).length;
   return (
     <div className="navbar">
       <div className="nav__left">
@@ -14,6 +14,6 @@ const NavBar = ({tasks}) => {
       </div>
     </div>
   );
-}
- 
+};
+
 export default NavBar;

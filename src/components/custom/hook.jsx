@@ -5,10 +5,10 @@ const HookPlayGround = () => {
   const ref = useRef();
   useEffect(() => {
     const handler = (event) => {
-      if(dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropDown(false)
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropDown(false);
       }
-    }
+    };
     document.addEventListener("mousedown", handler);
     return () => {
       // Cleanup the event listener
@@ -17,7 +17,7 @@ const HookPlayGround = () => {
   }, [dropdown]);
 
   return (
-     <li ref={ref}>
+    <li ref={ref}>
       <button onClick={() => setDropDown((prev) => !prev)}>
         Services <span>&#8595;</span>
       </button>
@@ -29,6 +29,6 @@ const HookPlayGround = () => {
       )}
     </li>
   );
-}
- 
+};
+
 export default HookPlayGround;
