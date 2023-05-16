@@ -10,6 +10,10 @@ const HookPlayGround = () => {
       }
     }
     document.addEventListener("mousedown", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+    };
   }, [dropdown]);
 
   return (
