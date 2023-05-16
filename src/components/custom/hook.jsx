@@ -4,8 +4,12 @@ const HookPlayGround = () => {
   const [dropdown, setDropDown] = useState(false);
   const ref = useRef();
   useEffect(() => {
-
-    dropdown ? document.title = `Current state value ${dropdown}` : document.title = `React App`;
+    const handler = (event) => {
+      if(dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropDown(false)
+      }
+    }
+    document.addEventListener("mousedown", handler);
   }, [dropdown]);
 
   return (
