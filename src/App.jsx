@@ -3,6 +3,7 @@ import './App.css';
 import TaskInput from './components/taskInput';
 import TasksList from './components/tasksList';
 import NavBar from './components/navbar';
+import HookPlayGround from './components/custom/hook';
 
 function App() {
 
@@ -11,7 +12,6 @@ function App() {
   const [items, setItems] = useState(arrayOfTasks);
 
   const removeTask = (id) => {
-    console.log(id);
     setItems( items.filter(item => item.id !== id));
     const newArrayOfTasks = arrayOfTasks.filter(task => task.id !== id);
     localStorage.setItem("tasks", JSON.stringify(newArrayOfTasks));
@@ -27,6 +27,7 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
   }
 
+
   const checkTask = (item) => {
     setItems(prev =>
       prev.map(task => {
@@ -34,15 +35,24 @@ function App() {
           return {...task, completed: !task.completed}
         }
         return task;
-      }))
-
-      console.log(items);
+      }));
+      const newArrayOfTasks = items;
+    localStorage.setItem("tasks", JSON.stringify(newArrayOfTasks));
+    // console.log(arrayOfTasks);
   }
+
+  const completedTask = () => {
+    const completedTask = arrayOfTasks.filter(task => task.completed);
+    console.log(completedTask);
+  }
+
+  // completedTask()
   return (
     <div className='container'>
       <TaskInput handleAdd={addTask} />
       <TasksList tasks={items} handleDelete={removeTask} handleCheck={checkTask}/>
       <NavBar tasks={items} />
+      <HookPlayGround />
     </div>
   );
 }
