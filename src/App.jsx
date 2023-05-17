@@ -3,7 +3,7 @@ import "./App.css";
 import TaskInput from "./components/taskInput";
 import TasksList from "./components/tasksList";
 import NavBar from "./components/navbar";
-import HookPlayGround from "./components/custom/hook";
+// import HookPlayGround from "./components/custom/hook";
 
 function App() {
   const arrayOfTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -55,7 +55,6 @@ function App() {
         handleCheck={checkTask}
       />
       <NavBar tasks={items} />
-      <HookPlayGround />
     </div>
   );
 }

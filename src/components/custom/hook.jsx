@@ -27,6 +27,7 @@ const HookPlayGround = () => {
           <li>Development</li>
         </ul>
       )}
+      <img src="https://picsum.photos/200" alt="" />
     </li>
   );
 };

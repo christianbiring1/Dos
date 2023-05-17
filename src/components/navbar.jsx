@@ -3,14 +3,22 @@ const NavBar = ({ tasks }) => {
   return (
     <div className="navbar">
       <div className="nav__left">
-        <span>+Add</span>
-        <span>Search</span>
+        <span>
+          <i className="fa fa-plus"></i>Add
+        </span>
+        <span>
+          <i className="fa fa-search"></i>Search
+        </span>
         <span>{left} items left</span>
       </div>
       <div className="nav__right">
         <span>All</span>
-        <span>Active</span>
-        <span>Completed</span>
+        <span>
+          <i className="fa fa-check-circle" aria-hidden="true"></i>Active
+        </span>
+        <span>
+          <i className="fa fa-list"></i>Completed
+        </span>
       </div>
     </div>
   );
