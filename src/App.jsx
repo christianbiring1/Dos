@@ -22,22 +22,17 @@ function App() {
     const completed = false;
     setItems([...items, { id, title, completed }]);
     arrayOfTasks.push({ id, title, completed });
-    console.log(arrayOfTasks);
     localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
   };
 
   const checkTask = (item) => {
-    setItems((prev) =>
-      prev.map((task) => {
-        if (task === item) {
-          return { ...task, completed: !task.completed };
-        }
-        return task;
-      })
-    );
-    const newArrayOfTasks = items;
+    const newItems = [...items];
+    const index = newItems.indexOf(item);
+    newItems[index] = { ...item };
+    newItems[index].completed = !newItems[index].completed;
+    setItems(newItems);
+    const newArrayOfTasks = newItems;
     localStorage.setItem("tasks", JSON.stringify(newArrayOfTasks));
-    // console.log(arrayOfTasks);
   };
 
   const completedTask = () => {

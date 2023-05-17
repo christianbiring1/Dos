@@ -1,5 +1,5 @@
 const NavBar = ({ tasks }) => {
-  const left = tasks.filter((item) => item.completed === false).length;
+  const left = tasks.filter((item) => !item.completed).length;
   return (
     <div className="navbar">
       <div className="nav__left">
@@ -14,7 +14,12 @@ const NavBar = ({ tasks }) => {
       <div className="nav__right">
         <span>All</span>
         <span>
-          <i className="fa fa-check-circle" aria-hidden="true"></i>Active
+          <i
+            style={{ color: "green" }}
+            className="fa fa-check-circle"
+            aria-hidden="true"
+          ></i>
+          Active
         </span>
         <span>
           <i className="fa fa-list"></i>Completed
