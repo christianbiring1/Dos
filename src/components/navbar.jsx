@@ -1,4 +1,4 @@
-const NavBar = ({ tasks }) => {
+const NavBar = ({ tasks, onCompleted, onActive, onAll }) => {
   const left = tasks.filter((item) => !item.completed).length;
   return (
     <div className="navbar">
@@ -12,8 +12,8 @@ const NavBar = ({ tasks }) => {
         <span>{left} items left</span>
       </div>
       <div className="nav__right">
-        <span>All</span>
-        <span>
+        <span onClick={() => onAll()}>All</span>
+        <span onClick={() => onActive()}>
           <i
             style={{ color: "green" }}
             className="fa fa-check-circle"
@@ -21,7 +21,7 @@ const NavBar = ({ tasks }) => {
           ></i>
           Active
         </span>
-        <span>
+        <span onClick={() => onCompleted()}>
           <i className="fa fa-list"></i>Completed
         </span>
       </div>

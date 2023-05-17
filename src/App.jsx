@@ -31,16 +31,23 @@ function App() {
     newItems[index] = { ...item };
     newItems[index].completed = !newItems[index].completed;
     setItems(newItems);
-    const newArrayOfTasks = newItems;
-    localStorage.setItem("tasks", JSON.stringify(newArrayOfTasks));
+    localStorage.setItem("tasks", JSON.stringify(newItems));
   };
 
   const completedTask = () => {
-    const completedTask = arrayOfTasks.filter((task) => task.completed);
-    console.log(completedTask);
+    const completedTasks = arrayOfTasks.filter((task) => task.completed);
+    setItems(completedTasks);
   };
 
-  // completedTask()
+  const activeTask = () => {
+    const activeTasks = arrayOfTasks.filter((task) => !task.completed);
+    setItems(activeTasks);
+  };
+
+  const allTask = () => {
+    const allTasks = arrayOfTasks;
+    setItems(allTasks);
+  };
   return (
     <div className="container">
       <TaskInput handleAdd={addTask} />
@@ -49,7 +56,12 @@ function App() {
         handleDelete={removeTask}
         handleCheck={checkTask}
       />
-      <NavBar tasks={items} />
+      <NavBar
+        tasks={items}
+        onCompleted={completedTask}
+        onActive={activeTask}
+        onAll={allTask}
+      />
     </div>
   );
 }
