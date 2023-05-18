@@ -1,9 +1,6 @@
 import TaskItem from "./taskItem";
-const TasksList = ({ tasks, handleDelete, handleCheck }) => {
-  if (tasks.length === 0)
-    return (
-      <p className="nothing_to">You don't have anything to do at this time</p>
-    );
+const TasksList = ({ tasks, handleDelete, handleCheck, message }) => {
+  if (tasks.length === 0) return <p className="nothing_to">{message}</p>;
 
   return (
     <ul className="list-group">
