@@ -1,33 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import AddTask from "./addTask";
 
 const NavBar = ({ tasks, handleAdd, onCompleted, onActive, onAll }) => {
   const left = tasks.filter((item) => !item.completed).length;
-  const [dropdown, setDropDown] = useState(false);
-  const ref = useRef();
-  useEffect(() => {
-    const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropDown(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [dropdown]);
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen((prev) => !prev);
+  };
   return (
     <div className="navbar">
       <div className="nav__left">
-        <span
-          ref={ref}
-          onClick={() => setDropDown((prev) => !prev)}
-          className="add_task-container"
-        >
+        <span onClick={togglePopup} className="add_task-container">
           <i className="fa fa-plus"></i>Add
-          {dropdown && (
-            <div className="add_task">
-              <input type="text" placeholder="Add New" />
-            </div>
+          {isOpen && (
+            <AddTask
+              content={<p>Design your popup</p>}
+              handleClose={togglePopup}
+            />
           )}
         </span>
         <span>
