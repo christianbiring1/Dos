@@ -68,6 +68,7 @@ function App() {
       />
       <NavBar
         tasks={items}
+        handleAdd={addTask}
         onCompleted={completedTask}
         onActive={activeTask}
         onAll={allTask}

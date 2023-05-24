@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddTask from "./addTask";
+import TaskInput from "./taskInput";
 
 const NavBar = ({ tasks, handleAdd, onCompleted, onActive, onAll }) => {
   const left = tasks.filter((item) => !item.completed).length;
@@ -14,7 +15,7 @@ const NavBar = ({ tasks, handleAdd, onCompleted, onActive, onAll }) => {
           <i className="fa fa-plus"></i>Add
           {isOpen && (
             <AddTask
-              content={<p>Design your popup</p>}
+              content={<TaskInput handleAdd={handleAdd} />}
               handleClose={togglePopup}
             />
           )}
