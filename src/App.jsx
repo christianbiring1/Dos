@@ -40,21 +40,21 @@ function App() {
   const completedTask = () => {
     const completedTasks = arrayOfTasks.filter((task) => task.completed);
     setItems(completedTasks);
-    if (completedTask.length === 0)
+    if (!completedTask.length)
       setMessage("Nothing has already been done!");
   };
 
   const activeTask = () => {
     const activeTasks = arrayOfTasks.filter((task) => !task.completed);
     setItems(activeTasks);
-    if (activeTasks.length === 0)
+    if (!activeTasks.length)
       setMessage("You don't have any task to do for now!");
   };
 
   const allTask = () => {
     const allTasks = arrayOfTasks;
     setItems(allTasks);
-    if (allTask.length === 0)
+    if (!allTask.length)
       setMessage("You don't have anything to do at this time!");
   };
   return (

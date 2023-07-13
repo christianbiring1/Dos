@@ -1,6 +1,6 @@
 import TaskItem from "./taskItem";
 const TasksList = ({ tasks, handleDelete, handleCheck, message }) => {
-  if (tasks.length === 0) return <p className="nothing_to">{message}</p>;
+  if (!tasks.length) return <p className="nothing_to">{message}</p>;
 
   return (
     <ul className="list-group">

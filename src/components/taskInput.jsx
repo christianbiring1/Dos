@@ -5,7 +5,6 @@ const TaskInput = ({ handleAdd }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    // console.log(title);
     setTitle("");
   };
   return (

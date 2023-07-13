@@ -12,3 +12,11 @@ function migratoryBirds(arr) {
 }
 
 migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]);
+
+function arr(name) {
+  return () => {
+    console.log(name + "Event cleaned!");
+  };
+}
+
+console.log(arr("Chris22")());
